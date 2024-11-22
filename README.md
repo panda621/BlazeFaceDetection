@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# Blaze Face Detection
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Node Version: `16.20.2`
 
-## Available Scripts
+```bash
+nvm list
+nvm install 16.20.2
+nvm use 16.20.2
+```
 
-In the project directory, you can run:
+Installing the project using legacy dependacies flag
 
-### `npm start`
+```bash
+npm install --legacy-peer-deps
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+or
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+yarn install
+```
 
-### `npm test`
+## Node Options
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Set the Node Options to openssl legacy provider
 
-### `npm run build`
+### WindowsOS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use this command on a windows only
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```powershell
+$env:NODE_OPTIONS="--openssl-legacy-provider"
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Linux & MacOS\*\*
 
-### `npm run eject`
+Use this command on a linux or macOS device only
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Run the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Run the application to test the pose estimation task with the below command
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+or
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+yarn run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Hosting on Github
 
-### Code Splitting
+### 1. Install gh-pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install gh-pages --save-dev
+```
 
-### Analyzing the Bundle Size
+or
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+yarn add gh-pages
+```
 
-### Making a Progressive Web App
+### 2. Add a homepage property
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```json
+{
+    "name": "my-app",
+    "version": "0.1.0",
++   "homepage": "https://billy-06.github.io/BlazeFaceDetection",
+    "private": true,
+    ...
+}
+```
 
-### Advanced Configuration
+### 3. Add predeploy and deploy scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```json
+"scripts": {
++   "predeploy": "npm run build",
++   "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+}
+```
 
-### Deployment
+### Predeploy then deploy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Deploy
 
-### `npm run build` fails to minify
+```bash
+npm run predeploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+or
+
+```bash
+yarn run predeploy
+```
+
+predeploy (optional to add a message)
+
+```bash
+npm run deploy -- -m "Deploy React app to GitHub Pages"
+```
+
+or
+
+```bash
+yarn run deploy -- -m "Deploy React app to GitHub Pages"
+```
+
+### Configure Deployment branch on GitPages
+
+Set deployment branch to `gh-pages`
+
+Set the directory to `/root`
+
+### All set
+
+Check the browser at [your gh link](https://billy-06.github.io/BlazeFaceDetection)
