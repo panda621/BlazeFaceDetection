@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BlazeFaceDetection/static/css/main.b1fdbed4.css",
+    "main.js": "/BlazeFaceDetection/static/js/main.ba849728.js",
+    "index.html": "/BlazeFaceDetection/index.html",
+    "main.b1fdbed4.css.map": "/BlazeFaceDetection/static/css/main.b1fdbed4.css.map",
+    "main.ba849728.js.map": "/BlazeFaceDetection/static/js/main.ba849728.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1fdbed4.css",
+    "static/js/main.ba849728.js"
+  ]
+}
